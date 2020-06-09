@@ -1,0 +1,101 @@
+.art-qrcode {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.right {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+#qrcode {
+	display: none;
+}
+
+.canvas-box {
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+}
+
+.btn {
+	position: fixed;
+	top: 20px;
+	left: 500px;
+}
+
+.btn .reload-btn {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.image {
+	margin-bottom: 40px;
+	margin-right: 20px;
+	display: flex;
+}
+
+.setting {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+.image-item {
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(233, 233, 233);
+	box-sizing: border-box;
+}
+
+.image img {
+	max-width: 95%;
+	max-height: 95%;
+	border: 1px solid rgb(63, 63, 63);
+}
+
+.hide {
+	cursor: pointer;
+}
+
+.show {
+	display: none;
+	cursor: pointer;
+}
+
+.limit input {
+	width: 40px;
+}
+
+.color {
+	list-style: none;
+}
+
+.upload .img-box {
+    height: 0;
+    font-size: 0;
+}
+
+.upload .image-item {
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.upload .img {
+    max-width: 95%;
+	max-height: 95%;
+	border: 1px solid rgb(63, 63, 63);
+}

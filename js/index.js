@@ -1,0 +1,91 @@
+$(function () {
+	var qrcode = new QRCode(document.getElementById('qrcode'), {
+		text: 'https://kt.fkw.com/',
+		width: 500,
+		height: 500,
+		colorDark: '#000000',
+		colorLight: '#ffffff',
+		correctLevel: QRCode.CorrectLevel.H,
+	});
+
+	// 素材列表
+	var eyeList = {
+		type: 'eye',
+		eye1: {
+			url: './image/eye1.png',
+			options: {
+				name: 'eye1',
+				opacity: 1,
+				type: 'png',
+			},
+		},
+		eye2: {
+			url: './image/eye1.png',
+			options: {
+				name: 'eye2',
+				opacity: 1,
+				type: 'png',
+			},
+		},
+		eye3: {
+			url: './image/eye1.png',
+			options: {
+				name: 'eye3',
+				opacity: 1,
+				type: 'png',
+			},
+		},
+	};
+	var imgList = {
+		type: 'img',
+		list: {
+			row2col3: [],
+			row3col2: [],
+			row3: [],
+			row4: [],
+			row2col2: [],
+			corner: [],
+			col2: [
+				{
+					url: './image/col2.png',
+					options: {
+						name: 'col2-0',
+						opacity: 1,
+						type: 'png',
+					},
+					limit: Infinity,
+					count: 0,
+				},
+				{
+					url: './image/col2-1.png',
+					options: {
+						name: 'col2-1',
+						opacity: 1,
+						type: 'png',
+					},
+					limit: Infinity,
+					count: 0,
+				},
+			],
+			single: [
+				{
+					url: './image/single.png',
+					options: {
+						name: 'single-0',
+						opacity: 1,
+						type: 'png',
+					},
+					limit: Infinity,
+					count: 0,
+				},
+			],
+		},
+	};
+
+	qrcode.createStyle(qrcode, {
+		eyeList,
+		imgList,
+		canvasId: 'canvas',
+		grid: true
+	});
+});

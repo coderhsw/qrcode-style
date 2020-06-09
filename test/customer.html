@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>artQrcode</title>
+		<link rel="stylesheet" href="./customer.css" />
+		<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.4.6/fabric.min.js"></script> -->
+		<script src="../js/fabric.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="art-qrcode">
+			<div class="left">
+				<div class="btn">
+					<button class="reload-btn">重新加载</button>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/eye1.png" />
+					</div>
+					<div class="setting">
+						<span data-name="eye1" class="visibility hide">隐藏</span>
+						<span data-name="eye1" class="visibility show">显示</span>
+					</div>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/eye1.png" />
+					</div>
+					<div class="setting">
+						<span data-name="eye2" class="visibility hide">隐藏</span>
+						<span data-name="eye2" class="visibility show">显示</span>
+					</div>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/eye1.png" />
+					</div>
+					<div class="setting">
+						<span data-name="eye3" class="visibility hide">隐藏</span>
+						<span data-name="eye3" class="visibility show">显示</span>
+					</div>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/col2.png" />
+					</div>
+					<div class="setting">
+						<div class="count-box">
+							<span>个数：</span>
+							<span data-type="col2" data-name="col2-0" class="count"></span>
+						</div>
+						<span data-name="col2-0" class="visibility hide">隐藏</span>
+						<span data-name="col2-0" class="visibility show">显示</span>
+						<div class="range-box">
+							<span class="range-value"></span>
+							<input data-name="col2-0" class="range" type="range" min="0" max="100" />
+							<div class="check-box">
+								<label>中心缩放</label>
+								<input class="range-check-box" type="checkbox" />
+							</div>
+							<div class="limit">
+								<span>数量最大值：</span>
+								<input class="limit-input" data-type="col2" data-name="col2-0" type="text" />
+							</div>
+						</div>
+						<!-- <div class="type">
+								  <span>显示类型</span>
+								  <select data-type="col2" data-name="col2-0" class="type-select">
+									  <option value="row2col3">row2col3</option>
+									  <option value="row3col2">row3col2</option>
+									  <option value="row3">row3</option>
+									  <option value="col2" selected>col2</option>
+								  </select>
+							  </div> -->
+						<div class="style">
+							<span>样式</span>
+							<select data-name="col2-0" class="style-select">
+								<option value="">---</option>
+								<option value="horizon">水平镜像</option>
+								<option value="vertical">垂直镜像</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/col2-1.png" />
+					</div>
+					<div class="setting">
+						<!-- <span data-name="col2-1" class="visibility hide">隐藏</span>
+						<span data-name="col2-1" class="visibility show">显示</span> -->
+						<!-- <div class="range-box">
+							<span class="range-value"></span>
+							<input data-name="col2-1" class="range" type="range" min="0" max="100" />
+							<div class="check-box">
+								<label>中心缩放</label>
+								<input class="range-check-box" type="checkbox" />
+							</div>
+							<div class="limit">
+								<span>数量最大值：</span>
+								<input class="limit-input" data-type="col2" data-name="col2-1" type="text" />
+							</div>
+							  </div> -->
+						<div class="count-box">
+							<span>个数：</span>
+							<span data-type="col2" data-name="col2-1" class="count"></span>
+						</div>
+						<div class="type">
+							<span>显示类型</span>
+							<select data-type="col2" data-name="col2-1" class="type-select">
+								<option value="row2col3">row2col3</option>
+								<option value="row3col2">row3col2</option>
+								<option value="row3">row3</option>
+								<option value="col2" selected>col2</option>
+							</select>
+						</div>
+						<!-- <div class="style">
+								  <span>样式</span>
+								  <select data-type="col2" data-name="col2-1" class="style-select">
+									  <option value="">---</option>
+									  <option value="horizon">水平镜像</option>
+									  <option value="vertical">垂直镜像</option>
+								  </select>
+							  </div> -->
+					</div>
+				</div>
+				<div class="image">
+					<div class="image-item">
+						<img class="img" src="../image/single.png" />
+					</div>
+					<div class="setting">
+						<div class="count-box">
+							<span>个数：</span>
+							<span data-type="single" data-name="single-0" class="count"></span>
+						</div>
+						<span data-type="single" data-name="single-0" class="visibility hide">隐藏</span>
+						<span data-type="single" data-name="single-0" class="visibility show">显示</span>
+						<div class="range-box">
+							<span class="range-value"></span>
+							<input
+								data-type="single"
+								data-name="single-0"
+								class="range"
+								type="range"
+								min="0"
+								max="100"
+							/>
+							<div class="check-box">
+								<label>中心缩放</label>
+								<input class="range-check-box" type="checkbox" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="upload">
+					<p>上传图片</p>
+					<div class="img-box">
+						<img class="img" />
+					</div>
+					<input type="file" class="file-input" accept="image/*" />
+					<ul class="color"></ul>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="canvas-box">
+					<canvas id="canvas" width="500" height="500"></canvas>
+				</div>
+				<div id="qrcode"></div>
+			</div>
+		</div>
+
+		<script src="./qrcode.js"></script>
+		<script src="./customer.js"></script>
+	</body>
+</html>
