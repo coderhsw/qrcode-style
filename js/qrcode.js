@@ -2146,3 +2146,5 @@ var QRCode, QRCode_Art;
 		this.qrCodeArt = new QRCode_Art(qrcode, options);
 	};
 })();
+
+module.exports = QRCode;
