@@ -1,6 +1,6 @@
 {
   "name": "@hsw/qrcode-style",
-  "version": "1.0.8",
+  "version": "1.2.0",
   "description": "艺术二维码生成插件",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "files": [
     "index.js",
-    "dist"
+    "js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
