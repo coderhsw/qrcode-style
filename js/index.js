@@ -41,10 +41,28 @@ $(function () {
 		list: {
 			row2col3: [],
 			row3col2: [],
-			row3: [],
+			row3: [
+				{
+					url: './image/row3.png',
+					options: {
+						name: 'row3-0',
+						opacity: 1,
+						type: 'png',
+					},
+				},
+			],
 			row4: [],
 			row2col2: [],
-			corner: [],
+			corner: [
+				{
+					url: './image/corner.png',
+					options: {
+						name: 'corner-0',
+						opacity: 1,
+						type: 'png',
+					},
+				},
+			],
 			col2: [
 				{
 					url: './image/col2.png',
@@ -53,18 +71,6 @@ $(function () {
 						opacity: 1,
 						type: 'png',
 					},
-					limit: Infinity,
-					count: 0,
-				},
-				{
-					url: './image/col2-1.png',
-					options: {
-						name: 'col2-1',
-						opacity: 1,
-						type: 'png',
-					},
-					limit: Infinity,
-					count: 0,
 				},
 			],
 			single: [
@@ -75,8 +81,6 @@ $(function () {
 						opacity: 1,
 						type: 'png',
 					},
-					limit: Infinity,
-					count: 0,
 				},
 			],
 		},
@@ -86,6 +90,6 @@ $(function () {
 		eyeList,
 		imgList,
 		canvasId: 'canvas',
-		grid: true
+		grid: true,
 	});
 });

@@ -1075,8 +1075,6 @@ var QRCode, QRCode_Art;
 		: (function () {
 				// Drawing in Canvas
 				function _onMakeImage() {
-					this._elImage.src = this._elCanvas.toDataURL('image/png');
-					this._elImage.style.display = 'block';
 					this._elCanvas.style.display = 'none';
 				}
 
@@ -1162,9 +1160,7 @@ var QRCode, QRCode_Art;
 					this._el = el;
 					this._oContext = this._elCanvas.getContext('2d');
 					this._bIsPainted = false;
-					this._elImage = document.createElement('img');
-					this._elImage.alt = 'Scan me!';
-					this._elImage.style.display = 'none';
+
 					this._bSupportDataURI = null;
 
 					this.callback = callback ? callback : function () {};
@@ -1176,7 +1172,6 @@ var QRCode, QRCode_Art;
 				 * @param {QRCode} oQRCode
 				 */
 				Drawing.prototype.draw = function (oQRCode) {
-					var _elImage = this._elImage;
 					var _oContext = this._oContext;
 					var _htOption = this._htOption;
 
@@ -1185,8 +1180,9 @@ var QRCode, QRCode_Art;
 					var nHeight = _htOption.height / nCount;
 					var nRoundedWidth = Math.round(nWidth);
 					var nRoundedHeight = Math.round(nHeight);
+					var imgWidth = _htOption.imgWidth;
+					var imgHeight = _htOption.imgHeight;
 
-					_elImage.style.display = 'none';
 					this.clear();
 
 					for (var row = 0; row < nCount; row++) {
@@ -1216,9 +1212,34 @@ var QRCode, QRCode_Art;
 						}
 					}
 
-					this._bIsPainted = true;
-					this._el.appendChild(this._elCanvas);
-					this.callback();
+					if (_htOption.src) {
+						var image = new Image();
+						var self = this;
+
+						image.width = imgWidth;
+						image.height = imgHeight;
+
+						image.onload = function () {
+							_oContext.drawImage(
+								image,
+								(_htOption.width - this.width) / 2,
+								(_htOption.height - this.height) / 2,
+								imgWidth,
+								imgHeight
+							);
+
+							self._bIsPainted = true;
+							self._el.appendChild(self._elCanvas);
+
+							self.callback();
+						};
+
+						image.src = _htOption.src;
+					} else {
+						this._bIsPainted = true;
+						this._el.appendChild(this._elCanvas);
+						this.callback();
+					}
 				};
 
 				/**
@@ -1346,6 +1367,9 @@ var QRCode, QRCode_Art;
 			colorDark: '#000000',
 			colorLight: '#ffffff',
 			correctLevel: QRErrorCorrectLevel.H,
+			src: '',
+			imgWidth: 58,
+			imgHeight: 58,
 		};
 
 		if (typeof vOption === 'string') {
@@ -1466,7 +1490,13 @@ var QRCode, QRCode_Art;
 		this.imgList.list = list;
 
 		for (let key of Object.keys(this.imgList.list)) {
-			this.imgList.list[key] = this.imgList.list[key].filter((item) => !!item.url);
+			this.imgList.list[key] = this.imgList.list[key]
+				.filter((item) => !!item.url)
+				.map((item) => {
+					if (!item.count) item.count = 0;
+					if (!item.limit) item.limit = Infinity;
+					return item;
+				});
 		}
 
 		if (options.grid) {
@@ -1484,7 +1514,6 @@ var QRCode, QRCode_Art;
 
 		//row2col3
 		var list = imgList.list;
-		console.log(list);
 		if (list.row2col3.length > 0) {
 			var row2col3Len = list.row2col3.length;
 			var arrIndex = 0;
@@ -1603,8 +1632,8 @@ var QRCode, QRCode_Art;
 							list.row4[i].url,
 							nLeft,
 							nTop,
-							this.nWidth * 2,
-							this.nHeight,
+							this.nWidth,
+							this.nHeight * 4,
 							list.row4[i].options
 						);
 						isDraw[row][col] = isDraw[row + 1][col] = isDraw[row + 2][col] = isDraw[row + 3][col] = false;
@@ -1689,7 +1718,7 @@ var QRCode, QRCode_Art;
 							nLeft,
 							nTop,
 							this.nWidth * 2,
-							this.nHeight,
+							this.nHeight * 2,
 							list.corner[i].options
 						);
 						isDraw[row][col] = isDraw[row + 1][col] = isDraw[row][col + 1] = false;
@@ -2049,7 +2078,7 @@ var QRCode, QRCode_Art;
 		return isDraw;
 	};
 
-	QRCode_Art.prototype.initGridBackground = function() {
+	QRCode_Art.prototype.initGridBackground = function () {
 		var isDraw = JSON.parse(JSON.stringify(this._oQRCode.modules));
 		var nLeft, nTop;
 
@@ -2071,7 +2100,7 @@ var QRCode, QRCode_Art;
 				}
 			}
 		}
-	}
+	};
 
 	// 乱序算法
 	QRCode_Art.prototype.shuffle = function (arr) {
