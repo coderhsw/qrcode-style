@@ -1,13 +1,14 @@
 {
   "name": "qrcode-style",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "艺术二维码生成插件",
-  "main": "index.js",
+  "main": "dist",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config config/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,15 @@
   "bugs": {
     "url": "https://github.com/coderhsw/qrcode-style/issues"
   },
-  "homepage": "https://github.com/coderhsw/qrcode-style#readme"
+  "homepage": "https://github.com/coderhsw/qrcode-style#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-parallel-uglify-plugin": "^1.1.2"
+  }
 }

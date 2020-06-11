@@ -5,7 +5,7 @@ $(function () {
 		height: 500,
 		colorDark: '#000000',
 		colorLight: '#ffffff',
-		correctLevel: QRCode.CorrectLevel.H,
+		correctLevel: 2,
 	});
 
 	// 素材列表
