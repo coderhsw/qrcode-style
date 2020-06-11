@@ -1,4 +1,4 @@
-var QRCode, QRCode_Art;
+var QRCode, QRCode_Art, fabric;
 
 //---------------------------------------------------------------------
 // QRCode for JavaScript
@@ -16,6 +16,8 @@ var QRCode, QRCode_Art;
 //
 //---------------------------------------------------------------------
 (function () {
+	fabric = require('./fabric').fabric;
+	
 	function QR8bitByte(data) {
 		this.mode = QRMode.MODE_8BIT_BYTE;
 		this.data = data;
