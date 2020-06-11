@@ -1,1 +1,1 @@
-module.exports = require('./js/qrcode');
+module.exports = require('./dist/qrcode');
