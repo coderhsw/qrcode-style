@@ -1,6 +1,6 @@
 {
   "name": "@hsw/qrcode-style",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "艺术二维码生成插件",
   "main": "index.js",
   "directories": {
