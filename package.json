@@ -1,11 +1,15 @@
 {
   "name": "qrcode-style",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "艺术二维码生成插件",
-  "main": "dist",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
+  "files": [
+    "index.js",
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config config/webpack.config.js"

@@ -10,6 +10,8 @@
 npm install qrcode-style --save
 ```
 
+如果要使用 script 标签引入的形式，可以使用这个文件 [qrcodeStyle.js](https://github.com/coderhsw/qrcode-style/blob/master/dist/qrcodeStyle.js)
+
 ### 使用方法
 
 -   生成普通黑白二维码
