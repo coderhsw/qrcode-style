@@ -2,7 +2,7 @@
 
 基于 fabric.js 的艺术二维码生成插件，可以使用图片素材自定义二维码样式。
 
-![](./image/doc/qrcode.png '例子')
+![](./image/qrcode.png '例子')
 
 ### 安装方法
 
