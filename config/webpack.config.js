@@ -55,5 +55,10 @@ module.exports = {
 			name: true,
 			cacheGroups: {},
 		},
-	},
+    },
+    externals: {
+        jsdom: 'jsdom',
+        'jsdom/lib/jsdom/living/generated/utils': 'jsdom/lib/jsdom/living/generated/utils',
+        'jsdom/lib/jsdom/utils': 'jsdom/lib/jsdom/utils'
+      }
 };
